@@ -1,41 +1,37 @@
 """
-@Author: Zeehan 
+@Author: Zeehan khan
 @Date: 2021-24-11 13:00:30
-@Title : Refactor the Code to write a function to get work hours
+@Title : Calculate total wage 
 """
 """
 Description:
-     imported random library and declare 5 constant variable ans use if elif and use while loop  
+     Function here i used two function with  parameter whi will return compny name emp rateperhur numofworkingdays maxhurpermonth 
 Parameter:
-      
+      we have five parameter in our program
 Return:
-    retuned ComputeEmpWage():randint is a function it return random integer
+       retuned compny emprateprhur numofworkingdays maxhurpermonth randint is a function it return random integer
 """
 import random
 IS_PART_TIME = 1
 IS_FULL_TIME = 2
-EMP_RATE_PER_HOUR = 20
-NUM_OF_WORKING_DAYS = 2
-MAX_HRS_IN_MONTH = 10
-def ComputeEmpWage():
+def computeempwage( company,  empRatePerHour,  numOfWorkingDays,  maxHoursPerMonth):
     empHrs = 0
     totalEmpHrs = 0
     totalWorkingDays = 0
-    while (totalEmpHrs <= MAX_HRS_IN_MONTH and totalWorkingDays < NUM_OF_WORKING_DAYS):
+    while (totalEmpHrs <= maxHoursPerMonth and totalWorkingDays < numOfWorkingDays):
         totalWorkingDays+=1
         empCheck = random.randint(0, 3)
-        if (empCheck==IS_PART_TIME):
-            empHrs = 4
-        elif(empCheck== IS_FULL_TIME):
-            empHrs = 8
-        else: 
-            empHrs = 0 
-        totalEmpHrs += empHrs
-    totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR
-    print( totalEmpWage)
-    print(totalEmpHrs)
-        
+        def empHrs(i):
+            switcher = {
+                0: 0,
+                1: 4,
+                2: 8,
+            }
+            return switcher.get(i, 0)
+        totalEmpHrs += empHrs(empCheck)
+        totalEmpWage = totalEmpHrs * empRatePerHour
+    print("Total Emp Wage for company: " + str(company) + " is : " + str(totalEmpWage))
 
 
 if __name__=='__main__':
-    ComputeEmpWage()
+    computeempwage("Airtel", 2, 10, 20)
