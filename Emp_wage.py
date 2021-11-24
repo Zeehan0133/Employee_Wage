@@ -1,31 +1,39 @@
 """
 @Author: Zeehan 
 @Date: 2021-24-11 13:00:30
-@Title : emp wage using switcher 
+@Title : Calculate Wage for a Month 
 """
 """
 Description:
-     imported random library and declare 3 constant variable ans use if   
+     imported random library and declare 4 constant variable ans use if elif   
 Parameter:
-      use emphur function with parameter i and switcher is a dict and we returned value with .get method
+      
 Return:
-       return key and value randint is a function it return random integer
+       returned calculatewagesfor20daysinmonth(): randint is a function it return random integer
 """
 import random
 IS_PART_TIME = 1
 IS_FULL_TIME = 2
 EMP_RATE_PER_HOUR = 20
-empHrs = 0
-empWage = 0
-empCheck = random.randint(0, 3)
-def empHrs(i):
-        switcher={
-                0:0,
-                1:4,
-                2:8,
-             }
-        return switcher.get(i,0)
+NUM_OF_WORKING_DAYS = 2
+def calculatewagesfor20daysinmonth():
+    empHrs = 0
+    empWage = 0
+    totalEmpWage = 0
+    for i in range(0,NUM_OF_WORKING_DAYS):
+        empCheck = random.randint(0, 3)
+        if (empCheck==IS_PART_TIME):
+            empHrs = 4
+        elif(empCheck== IS_FULL_TIME):
+            empHrs = 8
+        else:
+            empHrs = 0 
+        empWage = empHrs * EMP_RATE_PER_HOUR
+        totalEmpWage+=empWage
+        print( totalEmpWage) 
 
-empWage = empHrs(empCheck) * EMP_RATE_PER_HOUR
-print(empWage)
+
+if __name__=='__main__':        
+    calculatewagesfor20daysinmonth()
+
  
