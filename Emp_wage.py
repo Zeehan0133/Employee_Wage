@@ -1,7 +1,7 @@
 """
 @Author: Zeehan 
 @Date: 2021-24-11 13:00:30
-@Title : Calculate Wages til a condition of total working hours or days is reached for a month
+@Title : Refactor the Code to write a function to get work hours
 """
 """
 Description:
@@ -9,15 +9,15 @@ Description:
 Parameter:
       
 Return:
-        returned calculatewagetill100hrsor20isreached() randint is a function it return random integer
+    retuned ComputeEmpWage():randint is a function it return random integer
 """
 import random
 IS_PART_TIME = 1
 IS_FULL_TIME = 2
 EMP_RATE_PER_HOUR = 20
-NUM_OF_WORKING_DAYS = 20
-MAX_HRS_IN_MONTH = 100
-def calculatewagetill100hrsor20isreached():
+NUM_OF_WORKING_DAYS = 2
+MAX_HRS_IN_MONTH = 10
+def ComputeEmpWage():
     empHrs = 0
     totalEmpHrs = 0
     totalWorkingDays = 0
@@ -31,8 +31,11 @@ def calculatewagetill100hrsor20isreached():
         else: 
             empHrs = 0 
         totalEmpHrs += empHrs
-        totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR
-        print(totalEmpWage)
+    totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR
+    print( totalEmpWage)
+    print(totalEmpHrs)
+        
 
-if __name__=='__main__': 
-    calculatewagetill100hrsor20isreached()       
+
+if __name__=='__main__':
+    ComputeEmpWage()
